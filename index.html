@@ -9,13 +9,16 @@
     <a-scene>
       <a-assets>
         <img id="sphereTexture" src="123.jpg">
-        <img id="groundTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg">
+        <img id="groundTexture" src="12.jpg">
         <img id="skyTexture" src="https://cdn.aframe.io/a-painter/images/sky.jpg">
       </a-assets>
       
-      <a-entity rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
-        <a-sphere position="0 2 -5" src="#sphereTexture"></a-sphere>
-      </a-entity>
+      <a-sphere position="0 2 -5" radius="1" src="#sphereTexture">
+        <a-animation attribute="position" direction="alternate" dur="2000" repeat="indefinite" to="0 2.2 -5"></a-animation>
+        <a-animation attribute="rotation" begin="click" dur="2000" to="360 405 45"></a-animation>
+        <a-animation attribute="scale" begin="mouseenter" dur="300" to="2.3 2.3 2.3"></a-animation>
+        <a-animation attribute="scale" begin="mouseleave" dur="300" to="2 2 2"></a-animation>
+      </a-sphere>
       
       <a-sky height="2048" radius="30" src="#skyTexture" theta-length="90" width="2048"></a-sky>
       <a-light type="ambient" color="#445451"></a-light>
